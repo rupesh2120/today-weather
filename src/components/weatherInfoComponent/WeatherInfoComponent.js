@@ -1,14 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { WeatherIcons } from "../App";
 
-export const WeatherInfoIcons = {
-	sunset: "/react-weather-app/icons/temp.svg",
-	sunrise: "/react-weather-app/icons/temp.svg",
-	humidity: "/react-weather-app/icons/humidity.svg",
-	wind: "/react-weather-app/icons/wind.svg",
-	pressure: "/react-weather-app/icons/pressure.svg",
-};
 const Location = styled.span`
 	margin: 15px auto;
 	text-transform: capitalize;
@@ -31,11 +23,7 @@ const WeatherInfoLabel = styled.span`
 	font-weight: bold;
 	font-size: 14px;
 `;
-const WeatherIcon = styled.img`
-	width: 100px;
-	height: 100px;
-	margin: 5px auto;
-`;
+
 const WeatherContainer = styled.div`
 	display: flex;
 	width: 100%;
@@ -60,10 +48,7 @@ const InfoContainer = styled.div`
 	justify-content: space-evenly;
 	align-items: center;
 `;
-const InfoIcon = styled.img`
-	width: 36px;
-	height: 36px;
-`;
+
 const InfoLabel = styled.span`
 	display: flex;
 	flex-direction: column;
@@ -79,7 +64,7 @@ const WeatherInfoComponent = (props) => {
 	const { name, value } = props;
 	return (
 		<InfoContainer>
-			<InfoIcon src={WeatherInfoIcons[name]} />
+			{/* <InfoIcon src={WeatherInfoIcons[name]} /> */}
 			<InfoLabel>
 				{value}
 				<span>{name}</span>
@@ -102,7 +87,7 @@ const WeatherComponent = (props) => {
 					<span>{`${Math.floor(weather?.main?.temp - 273)}°C`}</span>
 					{`  |  ${weather?.weather[0].description}`}
 				</Condition>
-				<WeatherIcon src={WeatherIcons[weather?.weather[0].icon]} />
+				{/* <WeatherIcon src={WeatherIcons[weather?.weather[0].icon]} /> */}
 			</WeatherContainer>
 			<Location>{`${weather?.name}, ${weather?.sys?.country}`}</Location>
 
