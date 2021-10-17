@@ -3,7 +3,6 @@ import "./App.css";
 import Axios from "axios";
 import CityComponent from "./components/cityComponent/CityComponent";
 import WeatherComponent from "./components/weatherInfoComponent/WeatherInfoComponent";
-import About from "./components/about/About";
 
 function App() {
 	const [city, updateCity] = useState();
@@ -21,7 +20,7 @@ function App() {
 			{city && weather ? (
 				<WeatherComponent weather={weather} city={city} />
 			) : (
-				<About />
+				<h2 className="main">Type City Name to get weather information</h2>
 			)}
 		</div>
 	);
