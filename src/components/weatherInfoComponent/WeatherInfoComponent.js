@@ -1,75 +1,16 @@
 import React from "react";
-import styled from "styled-components";
-
-const Location = styled.span`
-	margin: 15px auto;
-	text-transform: capitalize;
-	font-size: 28px;
-	font-weight: bold;
-`;
-const Condition = styled.span`
-	margin: 20px auto;
-	text-transform: capitalize;
-	font-size: 14px;
-	& span {
-		font-size: 28px;
-	}
-`;
-const WeatherInfoLabel = styled.span`
-	margin: 20px 25px 10px;
-	text-transform: capitalize;
-	text-align: start;
-	width: 90%;
-	font-weight: bold;
-	font-size: 14px;
-`;
-
-const WeatherContainer = styled.div`
-	display: flex;
-	width: 100%;
-	margin: 30px auto;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-`;
-
-const WeatherInfoContainer = styled.div`
-	display: flex;
-	width: 90%;
-	flex-direction: row;
-	justify-content: space-evenly;
-	align-items: center;
-	flex-wrap: wrap;
-`;
-const InfoContainer = styled.div`
-	display: flex;
-	margin: 5px 10px;
-	flex-direction: row;
-	justify-content: space-evenly;
-	align-items: center;
-`;
-
-const InfoLabel = styled.span`
-	display: flex;
-	flex-direction: column;
-	font-size: 14px;
-	margin: 15px;
-	& span {
-		font-size: 12px;
-		text-transform: capitalize;
-	}
-`;
+import "./WeatherInfoComponent.css";
 
 const WeatherInfoComponent = (props) => {
 	const { name, value } = props;
 	return (
-		<InfoContainer>
+		<div className="InfoContainer">
 			{/* <InfoIcon src={WeatherInfoIcons[name]} /> */}
-			<InfoLabel>
+			<div className="InfoLabel">
 				{value}
 				<span>{name}</span>
-			</InfoLabel>
-		</InfoContainer>
+			</div>
+		</div>
 	);
 };
 const WeatherComponent = (props) => {
@@ -81,18 +22,18 @@ const WeatherComponent = (props) => {
 		).getMinutes()}`;
 	};
 	return (
-		<>
-			<WeatherContainer>
-				<Condition>
+		<div className="WeatherContainer">
+			<div>
+				<div className="Condition">
 					<span>{`${Math.floor(weather?.main?.temp - 273)}°C`}</span>
 					{`  |  ${weather?.weather[0].description}`}
-				</Condition>
+				</div>
 				{/* <WeatherIcon src={WeatherIcons[weather?.weather[0].icon]} /> */}
-			</WeatherContainer>
-			<Location>{`${weather?.name}, ${weather?.sys?.country}`}</Location>
+			</div>
+			<div className="Location">{`${weather?.name}, ${weather?.sys?.country}`}</div>
 
-			<WeatherInfoLabel>Weather Info</WeatherInfoLabel>
-			<WeatherInfoContainer>
+			<p className="WeatherInfoLabel">Weather Info</p>
+			<div className="WeatherInfoContainer">
 				<WeatherInfoComponent
 					name={isDay ? "sunset" : "sunrise"}
 					value={`${getTime(weather?.sys[isDay ? "sunset" : "sunrise"])}`}
@@ -106,8 +47,8 @@ const WeatherComponent = (props) => {
 					name={"pressure"}
 					value={weather?.main?.pressure}
 				/>
-			</WeatherInfoContainer>
-		</>
+			</div>
+		</div>
 	);
 };
 

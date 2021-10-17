@@ -1,0 +1,57 @@
+.WeatherContainer {
+	display: flex;
+	width: 100%;
+	margin: 30px auto;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+.Condition {
+	margin: 20px auto;
+	text-transform: capitalize;
+	font-size: 14px;
+}
+.Condition span {
+	font-size: 28px;
+}
+.InfoContainer {
+	display: flex;
+	margin: 5px 10px;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.InfoLabel {
+	display: flex;
+	flex-direction: column;
+	font-size: 14px;
+	margin: 15px;
+}
+
+.InfoLabel-span {
+	font-size: 12px;
+	text-transform: capitalize;
+}
+
+.Location {
+	margin: 15px auto;
+	text-transform: capitalize;
+	font-size: 28px;
+	font-weight: bold;
+}
+.WeatherInfoLabel {
+	margin: 20px 25px 10px;
+	text-transform: capitalize;
+	text-align: center;
+	width: 90%;
+	font-weight: bold;
+	font-size: 14px;
+}
+.WeatherInfoContainer {
+	display: flex;
+	width: 90%;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-wrap: wrap;
+}

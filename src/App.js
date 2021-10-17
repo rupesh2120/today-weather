@@ -1,29 +1,9 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import "./App.css";
 import Axios from "axios";
 import CityComponent from "./components/cityComponent/CityComponent";
 import WeatherComponent from "./components/weatherInfoComponent/WeatherInfoComponent";
-
-const Container = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 380px;
-	padding: 20px 10px;
-	margin: auto;
-	border-radius: 4px;
-	box-shadow: 0 3px 6px 0 #555;
-	background: black;
-	color: white;
-	font-family: Montserrat;
-`;
-
-const AppLabel = styled.span`
-	color: white;
-	margin: 20px auto;
-	font-size: 18px;
-	font-weight: bold;
-`;
+import About from "./components/about/About";
 
 function App() {
 	const [city, updateCity] = useState();
@@ -36,14 +16,14 @@ function App() {
 		updateWeather(response.data);
 	};
 	return (
-		<Container>
-			<AppLabel>React Weather App</AppLabel>
+		<div className="container">
+			<CityComponent updateCity={updateCity} fetchWeather={fetchWeather} />
 			{city && weather ? (
 				<WeatherComponent weather={weather} city={city} />
 			) : (
-				<CityComponent updateCity={updateCity} fetchWeather={fetchWeather} />
+				<About />
 			)}
-		</Container>
+		</div>
 	);
 }
 
